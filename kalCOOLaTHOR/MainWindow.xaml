@@ -80,6 +80,9 @@
                 FontSize="18" Click="Operation_Click"/>
             <Button x:Name="BtnEquals" Content="=" Grid.Row="4" Grid.Column="3" Margin="5"
                 FontSize="18" Click="BtnEquals_Click"/>
+            <!-- Шестой ряд (одна кнопка на всю ширину) -->
+            <Button x:Name="BtnPlusMinus" Content="+/-" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+                Margin="5" FontSize="18" Click="BtnPlusMinus_Click"/>
         </Grid>
         </Grid>
 </Window>
