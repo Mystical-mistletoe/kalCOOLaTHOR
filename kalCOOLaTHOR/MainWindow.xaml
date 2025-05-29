@@ -5,83 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kalCOOLaTHOR"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="400" Width="300">
+        Title="kalCOOLaTHOR" Height="400" Width="300">
 
-    <Grid Background="LightGray">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- поля для ввода -->
-        <TextBox Name="titleTextBox"
-                Grid.Row="0" 
-                Grid.Column="1" 
-                Margin="5"/>
+        <!-- Дисплей калькулятора -->
+        <TextBox x:Name="Display" Grid.Row="0" Margin="10" Height="60" 
+                 FontSize="24" TextAlignment="Right" VerticalContentAlignment="Center"
+                 IsReadOnly="True" Background="#FFF0F0F0"/>
 
-        <TextBox Name="authorTextBox"
-                Grid.Row="1" 
-                Grid.Column="1" 
-                Margin="5"/>
+        <!-- Кнопки калькулятора -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <TextBox Name="yearTextBox"
-                Grid.Row="2" 
-                Grid.Column="1"
-                Margin="5"/>
-
-        <!-- выпадающий список для выбора состояния книги -->
-        <ComboBox Name="stateComboBox"
-                Grid.Row="3" 
-                Grid.Column="1"
-                Margin="5">
-            <ComboBoxItem Content="Отличное"/>
-            <ComboBoxItem Content="Нормальное"/>
-            <ComboBoxItem Content="Плохое"/>
-        </ComboBox>
-
-        <!-- UniformGrid с кнопками -->
-        <UniformGrid Columns="2"
-                Grid.Row="4" 
-                Grid.Column="1">
-
-            <Button Content="Добавить"
-                    Name="addBookButton"
-                    Padding="5"
-                    Margin="5,10,5,0"
-                    IsDefault="True"
-                    Click="addBookButton_Click"/>
-
-            <Button Content="Очистить"
-                    Name="clearBookButton"
-                    Padding="5"
-                    Margin="5,10,5,0"
-                    IsCancel="True"
-                    Click="clearBookButton_Click"/>
+            <!-- Первый ряд -->
+            <Button x:Name="BtnClear" Content="C" Grid.Row="0" Grid.Column="0" Margin="5" 
+                    FontSize="18" Click="BtnClear_Click"/>
+            <Button x:Name="BtnBackspace" Content="⌫" Grid.Row="0" Grid.Column="1" Margin="5" 
+                    FontSize="18" Click="BtnBackspace_Click"/>
+            <Button x:Name="BtnSqrt" Content="√" Grid.Row="0" Grid.Column="2" Margin="5" 
+                    FontSize="18" Click="BtnSqrt_Click"/>
+            <Button x:Name="BtnDivide" Content="/" Grid.Row="0" Grid.Column="3" Margin="5" 
+                    FontSize="18" Click="Operation_Click"/>
+            <!-- Второй ряд -->
+            <Button x:Name="Btn7" Content="7" Grid.Row="1" Grid.Column="0" Margin="5" 
+                    FontSize="18" Click="Number_Click"/>
+            <Button x:Name="Btn8" Content="8" Grid.Row="1" Grid.Column="1" Margin="5" 
+                    FontSize="18" Click="Number_Click"/>
+            <Button x:Name="Btn9" Content="9" Grid.Row="1" Grid.Column="2" Margin="5" 
+                    FontSize="18" Click="Number_Click"/>
+            <Button x:Name="BtnMultiply" Content="*" Grid.Row="1" Grid.Column="3" Margin="5" 
+                    FontSize="18" Click="Operation_Click"/>
+            <!-- Третий ряд -->
+            <Button x:Name="Btn4" Content="4" Grid.Row="2" Grid.Column="0" Margin="5" 
+                FontSize="18" Click="Number_Click"/>
+            <Button x:Name="Btn5" Content="5" Grid.Row="2" Grid.Column="1" Margin="5" 
+                FontSize="18" Click="Number_Click"/>
+            <Button x:Name="Btn6" Content="6" Grid.Row="2" Grid.Column="2" Margin="5" 
+                FontSize="18" Click="Number_Click"/>
+            <Button x:Name="BtnSubtract" Content="-" Grid.Row="2" Grid.Column="3" Margin="5" 
+                FontSize="18" Click="Operation_Click"/>
             
-            <Button Content="Очистить"
-                    Name="2clearBookButton"
-                    Padding="5"
-                    Margin="5,10,5,0"
-                    IsCancel="True"
-                    Click="clearBookButton_Click"/>
-        </UniformGrid>
-
-        <!-- фоновое изображение -->
-        <Image Source="/Images/book.png" 
-                Grid.Row="5" 
-                Grid.Column="0"
-                VerticalAlignment="Bottom"
-                MaxHeight="100"
-                MaxWidth="100" 
-                Opacity="0.4"/>
-
-    </Grid>
+        </Grid>
+        </Grid>
 </Window>
